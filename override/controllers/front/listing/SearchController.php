@@ -24,14 +24,17 @@
 *  @version  Release: $Revision$
 *  International Registered Trademark & Property of PrestaShop SA
 */
-
  use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchQuery;
  use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
  use PrestaShop\PrestaShop\Adapter\Search\SearchProductSearchProvider;
-
  class SearchController extends SearchControllerCore
  {
-     public function init()
+     /*
+    * module: ets_searchbycategory
+    * date: 2022-05-26 00:01:26
+    * version: 1.0.2
+    */
+    public function init()
      {
          if (Tools::isSubmit('ajaxSearch'))
          {
@@ -46,7 +49,6 @@
              if (is_array($searchResults))
                  foreach ($searchResults as &$product)
                  {
-
                      $product['product_link'] = $this->context->link->getProductLink($product['id_product'], $product['prewrite'], $product['crewrite']);
                      $productObj = new Product((int)$product['id_product'], true, (int)$this->context->cookie->id_lang, $this->context->shop->id);
                      $images = $productObj->getImages((int)$this->context->cookie->id_lang);
@@ -60,8 +62,7 @@
                      }
                      else
                          $product['img_url'] = '';
-                     $product['price'] = (int) $productObj->price ? Tools::displayPrice($productObj->price, $currency) : Module::getInstanceByName('ets_searchbycategory')->l('Free');
-
+                     $product['price'] = (int) $productObj->price ? Tools::displayPrice(round($productObj->price*(1+$productObj->tax_rate/100),2), $currency) : Module::getInstanceByName('ets_searchbycategory')->l('Free');
                      if (Module::isEnabled('ets_searchbycategory')){
                          $module = Module::getInstanceByName('ets_searchbycategory');
                          $product['html'] = $module->renderAjaxProductItem($product,$product['img_url']);
