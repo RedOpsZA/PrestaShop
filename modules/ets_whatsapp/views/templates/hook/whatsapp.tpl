@@ -40,7 +40,7 @@
         </style>
     {/literal}
     <div class="ets_wa_whatsapp_block {$ETS_WA_DISPLAY_POSITION|escape:'html':'UTF-8'}">
-        <a target="_blank" data-mobile-href="https://api.whatsapp.com/send?phone={$ETS_WA_COUNTRY->call_prefix|escape:'html':'UTF-8'}{$ETS_WA_NUMBER_PHONE|escape:'html':'UTF-8'}{if $ETS_WA_SEND_CURRENT_URL}&text={$ETS_WA_SEND_CURRENT_URL|escape:'html':'UTF-8'}{/if}" href="https://web.whatsapp.com/send?phone={$ETS_WA_COUNTRY->call_prefix|escape:'html':'UTF-8'}{$ETS_WA_NUMBER_PHONE|escape:'html':'UTF-8'}{if $ETS_WA_SEND_CURRENT_URL}&text={$ETS_WA_SEND_CURRENT_URL|escape:'html':'UTF-8'}{/if}">
+        <a target="_blank" data-mobile-href="https://wa.me/{$ETS_WA_COUNTRY->call_prefix|escape:'html':'UTF-8'}{$ETS_WA_NUMBER_PHONE|escape:'html':'UTF-8'}{if $ETS_WA_SEND_TEXT}?text={$ETS_WA_SEND_CURRENT_URL|escape:'html':'UTF-8'}{/if}" href="https://wa.me/{$ETS_WA_COUNTRY->call_prefix|escape:'html':'UTF-8'}{$ETS_WA_NUMBER_PHONE|escape:'html':'UTF-8'}{if $ETS_WA_SEND_CURRENT_URL}?text={$ETS_WA_SEND_TEXT|escape:'html':'UTF-8'}{/if}">
             <img src="{$link->getMediaLink("`$smarty.const._MODULE_DIR_`ets_whatsapp/views/img/whatsapp.png")|escape:'html':'UTF-8'}" />
         </a>
         {if $ETS_WA_DISPLAY_TITLE}

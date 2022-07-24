@@ -141,7 +141,7 @@ class Ets_whatsapp_defines
             array(
                 'type' => 'switch',
                 'name' => 'ETS_WA_SEND_CURRENT_URL',
-                'label' => $this->l('Send URL of the current page'),
+                'label' => $this->l('Send text to start a conversation'),
                 'default' => 1,
                 'validate' => 'isInt',
                 'values' => array(
@@ -156,6 +156,12 @@ class Ets_whatsapp_defines
                         'value' => 0,
                     )
                 ),
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'ETS_WA_SEND_TEXT',
+                'label' => $this->l('Text to start conversation with'),
+                'default' => $this->l('Hi, I have a question'),
             ), 
         );
     }

@@ -463,6 +463,7 @@ $this->refs = 'https://prestahero.com/';
                     'ETS_WA_ADJUST_RIGHT' => Configuration::get('ETS_WA_ADJUST_RIGHT'),
                     'ETS_WA_ADJUST_BOTTOM' => Configuration::get('ETS_WA_ADJUST_BOTTOM'),
                     'ETS_WA_ADJUST_LEFT' => Configuration::get('ETS_WA_ADJUST_LEFT'),
+                    'ETS_WA_SEND_TEXT' => Configuration::get('ETS_WA_SEND_TEXT'),
                     'ETS_WA_COUNTRY' => new Country($ETS_WA_CALL_PREFIX),
                     'ETS_WA_SEND_CURRENT_URL' => Configuration::get('ETS_WA_SEND_CURRENT_URL') ? $this->getCurrentUrl():'',
                 )
