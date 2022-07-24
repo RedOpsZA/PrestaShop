@@ -143,6 +143,7 @@ app/config/config.php
 # Themes, modules and overrides
 
 modules/*
+!modules/ets_whatsapp/*
 override/*
 themes/*/
 themes/classic
